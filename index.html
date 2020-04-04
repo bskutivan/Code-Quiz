@@ -11,37 +11,30 @@
     <header>
         <!--for highscores button and timer-->
     </header>
-    <main>
-        <section>
-            <!-- wrapper section to hold content-->
 
-            <!-- Start Screen with Start Button-->
-            <div>
-                <h2>Coding Quiz Challenge!</h2>
-                <button>Start Quiz</button>
-            </div>
+    <div id="question-container" class="hide-me">
             
-            <!-- temporary div to style out quiz questions-->
-            <div>
-                <h2>QUIZ QUESTION</h2>
-                <!--List of possible answers-->
-                <ul>
-                    <li>Answer 1</li>
-                    <li>Answer 2</li>
-                    <li>Answer 3</li>
-                    <li>Answer 4</li>
-                </ul>
-            </div>
+        <div id = "question">QUIZ QUESTION</div>
 
-            <!-- Final Screen with highscore submiton-->
-            <div>
-                <h2>All Done!</h2>
-                <p>Final score displyed here</p>
-                <input type="text" placeholder="Enter your initials here!" />
-                <button type="submit">Submit</button>
-            </div>
-        </section>
-    </main>
+        <div id= "answer-buttons" class="btn-grid">
+            <button class = "btn">Answer 1</button>
+            <button class = "btn">Answer 2</button>
+            <button class = "btn">Answer 3</button>
+            <button class = "btn">Answer 4</button>
+        </div>
+
+    </div>
+        <div class = "start-screen">
+            <h2>Coding Quiz Challenge!</h2>
+            <button>Start Quiz</button>
+        </div>
+        <div class = "end-screen" class="hide-me">
+            <h2>All Done!</h2>
+            <p>Final score displyed here</p>
+            <input type="text" placeholder="Enter your initials here!" />
+            <button type="submit">Submit</button>
+        </div>
+    </div>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
