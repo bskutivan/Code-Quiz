@@ -76,6 +76,25 @@ body header a {
     font-weight: bold;
 }
 
+.end-scrn {
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.end-scrn .input-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.end-scrn .input-container input {
+    margin: 16px 0 16px 0;
+}
+
+.end-scrn .input-container button {
+    margin: 16px 0 16px 0;
+}
+
 .question-container {
     display: flex;
     flex-direction: column;
