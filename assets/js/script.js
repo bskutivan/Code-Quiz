@@ -1,9 +1,11 @@
 // when i click the start button - then a timer starts and I am presented with a question
-var timer = 0
+const timer = document.getElementById('timer');
+timer.innerHTML = 0;
+let counter = 75;
 
-const startButton = document.getElementById('start-btn')
-const startScreenEl = document.getElementById('start-screen')
-const questionContainerEl = document.getElementById('question-container')
+const startButton = document.getElementById('start-btn');
+const startScreenEl = document.getElementById('start-screen');
+const questionContainerEl = document.getElementById('question-container');
 
 // start quiz function that adds 75 to the clock and calls a countdown function
 // call a function that adds hide-me class to start screen
@@ -14,12 +16,15 @@ function addHide () {
 
 function startQuiz() {
     console.log('its begun')
+    setInterval(countdown, 1000);
     startScreenEl.classList.add('hide-me')
     questionContainerEl.classList.remove('hide-me')
 }
 
 function countdown () {
-
+    timer.innerHTML = counter
+    counter--;
+    console.log(timer.innerHTML);
 }
 
 function setNextQuestion () {
