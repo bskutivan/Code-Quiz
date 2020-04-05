@@ -11,7 +11,7 @@
     <header>
         <a href="highscores.html">View high scores</a>
         <div id="timer-text" class="timer">Time:
-            <p id="timer" class="countdown">1</p>
+            <p id="timer" class="countdown">0</p>
         </div>
     </header>
 
@@ -28,12 +28,12 @@
         <h2 id ="incorrect" class="hide-me question-response">Wrong!</h2>
         <h2 id ="correct" class="question-response">Correct!</h2>
     </div>
-    <div id ="start-screen" class="start-scrn hide-me">
+    <div id ="start-screen" class="start-scrn">
         <h2>Coding Quiz Challenge!</h2>
         <p>Answer the following code related questions within the time limit. Keep in mind incorrect answers will penalize your score/time by 10 seconds!</p>
-        <button class="btn">Start Quiz</button>
+        <button id="start-btn" class="btn">Start Quiz</button>
     </div>
-    <div id ="end-screen" class="end-scrn">
+    <div id ="end-screen" class="end-scrn hide-me">
         <h2>All Done!</h2>
         <p>Final score displyed here</p>
         <div class="input-container">

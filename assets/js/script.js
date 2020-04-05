@@ -1,6 +1,8 @@
 // when i click the start button - then a timer starts and I am presented with a question
 var timer = 0
-// create  timer variable that starts at 0
+
+const startButton = document.getElementById('start-btn')
+
 // start quiz function that adds 75 to the clock and calls a countdown function
 // call a function that adds hide-me class to start screen
 // call a function to cycle through question array with 
@@ -9,11 +11,11 @@ function addHide () {
 }
 
 function startQuiz() {
-
+    console.log('its begun')
 }
 
 function countdown () {
-    
+
 }
 
 function setNextQuestion () {
@@ -55,3 +57,4 @@ function displayScores () {
 
 }
 
+startButton.addEventListener('click', startQuiz)
