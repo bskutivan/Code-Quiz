@@ -6,6 +6,8 @@ let counter = 75;
 const startButton = document.getElementById('start-btn');
 const startScreenEl = document.getElementById('start-screen');
 const questionContainerEl = document.getElementById('question-container');
+const questionEl = document.getElementById('question');
+const answerBtns = document.getElementById('answer-buttons')
 
 const questions = [
     {
@@ -64,15 +66,17 @@ const questions = [
     },
 ]
 
-// const shuffledQuestions, currentQuestion
+let shuffledQuestions, currentQuestion
 
-function addHide () {
+// function addHide () {
 
-}
+// }
 
 function startQuiz() {
     setInterval(countdown, 1000);
     startScreenEl.classList.add('hide-me')
+    shuffledQuestions = questions.sort(() => Math.random() -.5)
+    currentQuestion = 0
     questionContainerEl.classList.remove('hide-me')
     setNextQuestion();
 }
@@ -83,7 +87,13 @@ function countdown () {
 }
 
 function setNextQuestion () {
-    alert("it works");
+    showQuestion(shuffledQuestions[currentQuestion]);
+    
+}
+
+function showQuestion(question) {
+    questionEl.innerText = question.question
+
 }
 
 // when I answer a question then I am presented with another question
