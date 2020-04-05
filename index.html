@@ -15,9 +15,9 @@
         </div>
     </header>
 
-    <div id="question-container" class="hide-me question-ctnr">
+    <div id="question-container" class="question-container hide-me">
             
-        <p id ="question">QUIZ QUESTION</p>
+        <h2 id ="question">QUIZ QUESTION</h2>
 
         <div id="answer-buttons" class="btn-grid">
             <button class = "btn">Answer 1</button>
@@ -25,14 +25,15 @@
             <button class = "btn">Answer 3</button>
             <button class = "btn">Answer 4</button>
         </div>
-
+        <h2 id ="incorrect" class="hide-me question-response">Wrong!</h2>
+        <h2 id ="correct" class="question-response">Correct!</h2>
     </div>
-    <div id ="start-screen" class="start-scrn">
+    <div id ="start-screen" class="start-scrn hide-me">
         <h2>Coding Quiz Challenge!</h2>
         <p>Answer the following code related questions within the time limit. Keep in mind incorrect answers will penalize your score/time by 10 seconds!</p>
-        <button>Start Quiz</button>
+        <button class="btn">Start Quiz</button>
     </div>
-    <div id ="end-screen" class="hide-me question-ctnr">
+    <div id ="end-screen" class="end-scrn">
         <h2>All Done!</h2>
         <p>Final score displyed here</p>
         <input type="text" placeholder="Enter your initials here!" />

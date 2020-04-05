@@ -25,6 +25,18 @@ header {
     width: 100%;
 }
 
+.btn {
+    background-color: var(--primary);
+    border: none;
+    border-radius: 5px;
+    width: 25%;
+    padding: 1%;
+    color: white;
+}
+
+.btn:hover {
+    background-color: #cc00cc;
+}
 body header a {
     display: flex;
     justify-content: flex-start;
@@ -43,13 +55,15 @@ body header a {
     padding: 0 7px 0 7px;
 }
 
-.start-scrn {
+.start-scrn, .end-scrn {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height: 400px;
     max-height: 80%;
+    width: 400px;
+    max-width: 80%;
 }
 
 .start-scrn h2 {
@@ -60,6 +74,29 @@ body header a {
 .start-scrn p {
     width: 50%;
     font-weight: bold;
+}
+
+.question-container {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    max-height: 80%;
+}
+
+
+.btn-grid {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 50%;
+    justify-content: space-around;
+}
+
+.question-response {
+    color: #cccccc;
+    border-top: 2px;
+    border-top-style: solid;
+    border-color: #cccccc;
 }
 
 
