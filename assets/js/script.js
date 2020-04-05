@@ -87,13 +87,30 @@ function countdown () {
 }
 
 function setNextQuestion () {
+    clearAnswers()
     showQuestion(shuffledQuestions[currentQuestion]);
     
 }
 
 function showQuestion(question) {
     questionEl.innerText = question.question
+    question.answers.forEach(answer => {
+        const button = document.createElement('button')
+        button.innerText = answer.text
+        button.classList.add('btn')
+        if (answer.correct) {
+            console.log("yay");
+            button.dataset.correct = answer.correct
+        }
+        button.addEventListener('click', selectAnswer)
+        answerBtns.appendChild(button)
+    })
+}
 
+function clearAnswers() {
+    while (answerBtns.firstChild) {
+        answerBtns.removeChild(answerBtns.firstChild)
+    }
 }
 
 // when I answer a question then I am presented with another question
