@@ -100,6 +100,7 @@ function showQuestion(question) {
         button.classList.add('btn')
         if (answer.correct) {
             console.log("yay");
+            // dataset used to check answers
             button.dataset.correct = answer.correct
         }
         button.addEventListener('click', selectAnswer)
@@ -113,7 +114,6 @@ function clearAnswers() {
     }
 }
 
-// when I answer a question then I am presented with another question
 // when I answer a question incorrectly then time is subtracted from the clock
 
 function selectAnswer() {
