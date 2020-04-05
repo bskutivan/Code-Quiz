@@ -9,24 +9,68 @@ const questionContainerEl = document.getElementById('question-container');
 
 const questions = [
     {
-        question:
+        question: "Commonly used data types DO NOT include:",
         answers: [
-            {}
-            {}
-            {}
-            {}
+            {text:"Strings", correct: false},
+            {text:"Yarns", correct: true},
+            {text:"Numeric", correct: false},
+            {text:"Boolean", correct: false}
         ]
-    }
+    },
+    {
+        question: "The condition in an if /else statement is enclosed with ____.",
+        answers: [
+            {text:"quotes", correct: false},
+            {text:"parenthesis", correct: true},
+            {text:"curly brackets", correct: false},
+            {text:"square brackets", correct: false}
+        ]
+    },
+    {
+        question: "The proper way to add a comment to JavaScript is with ____.",
+        answers: [
+            {text: "//", correct: true},
+            {text: "/*", correct: false},
+            {text: "<!--", correct: false},
+            {text: "devNote:", correct: false}
+        ]
+    },
+    {
+        question: "Arrays in JavaScript can be used to store ____.",
+        answers: [
+            {text: "numbers and strings", correct: false},
+            {text: "other arrays", correct: false},
+            {text: "booleans", correct: false},
+            {text: "all of the above", correct: true}
+        ]
+    },
+    {
+        question: "String values must be enclosed in ___ when being assigned to variables.",
+        answers: [
+            {text: "quotes", correct: true},
+            {text: "parenthesis", correct: false},
+            {text: "||", correct: false},
+            {text: "curly brackets", correct: false}
+        ]
+    },
+    {
+        question: "The <script> element goes in which element on the HTML page?",
+        answers: [
+            {text: "<head>", correct: false},
+            {text: "<body>", correct: true},
+            {text: "<p>", correct: false},
+            {text: "<HTML>", correct: false}
+        ]
+    },
 ]
 
-const shuffledQuestions, currentQuestion
+// const shuffledQuestions, currentQuestion
 
 function addHide () {
 
 }
 
 function startQuiz() {
-    console.log('its begun')
     setInterval(countdown, 1000);
     startScreenEl.classList.add('hide-me')
     questionContainerEl.classList.remove('hide-me')
@@ -35,8 +79,7 @@ function startQuiz() {
 
 function countdown () {
     timer.innerHTML = counter
-    counter--;
-    console.log(timer.innerHTML);
+    counter--;;
 }
 
 function setNextQuestion () {
