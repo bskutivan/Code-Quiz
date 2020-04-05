@@ -2,6 +2,8 @@
 var timer = 0
 
 const startButton = document.getElementById('start-btn')
+const startScreenEl = document.getElementById('start-screen')
+const questionContainerEl = document.getElementById('question-container')
 
 // start quiz function that adds 75 to the clock and calls a countdown function
 // call a function that adds hide-me class to start screen
@@ -12,6 +14,8 @@ function addHide () {
 
 function startQuiz() {
     console.log('its begun')
+    startScreenEl.classList.add('hide-me')
+    questionContainerEl.classList.remove('hide-me')
 }
 
 function countdown () {
