@@ -7,9 +7,20 @@ const startButton = document.getElementById('start-btn');
 const startScreenEl = document.getElementById('start-screen');
 const questionContainerEl = document.getElementById('question-container');
 
-// start quiz function that adds 75 to the clock and calls a countdown function
-// call a function that adds hide-me class to start screen
-// call a function to cycle through question array with 
+const questions = [
+    {
+        question:
+        answers: [
+            {}
+            {}
+            {}
+            {}
+        ]
+    }
+]
+
+const shuffledQuestions, currentQuestion
+
 function addHide () {
 
 }
@@ -19,6 +30,7 @@ function startQuiz() {
     setInterval(countdown, 1000);
     startScreenEl.classList.add('hide-me')
     questionContainerEl.classList.remove('hide-me')
+    setNextQuestion();
 }
 
 function countdown () {
@@ -28,7 +40,7 @@ function countdown () {
 }
 
 function setNextQuestion () {
-
+    alert("it works");
 }
 
 // when I answer a question then I am presented with another question
