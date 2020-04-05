@@ -1,6 +1,4 @@
-* {
-    box-sizing:  border-box;
-}
+
 
 :root {
     --primary: #4d004d;
@@ -13,14 +11,55 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
     min-height: 100vh;
     min-width: 100vw;
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
 }
 
-body header {
+
+header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+body header a {
+    display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     padding: 30px;
+}
+.timer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start; 
+    padding: 30px;
+}
+
+.timer p {
+    margin: unset;
+    padding: 0 7px 0 7px;
+}
+
+.start-scrn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 400px;
+    max-height: 80%;
+}
+
+.start-scrn h2 {
+    margin-bottom: 0;
+    font-weight: bolder;
+}
+
+.start-scrn p {
+    width: 50%;
+    font-weight: bold;
 }
 
 

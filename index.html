@@ -10,11 +10,14 @@
 <body>
     <header>
         <a href="highscores.html">View high scores</a>
+        <div id="timer-text" class="timer">Time:
+            <p id="timer" class="countdown">1</p>
+        </div>
     </header>
 
-    <div id="question-container" class="hide-me">
+    <div id="question-container" class="hide-me question-ctnr">
             
-        <div id ="question">QUIZ QUESTION</div>
+        <p id ="question">QUIZ QUESTION</p>
 
         <div id="answer-buttons" class="btn-grid">
             <button class = "btn">Answer 1</button>
@@ -24,11 +27,12 @@
         </div>
 
     </div>
-    <div id ="start-screen">
+    <div id ="start-screen" class="start-scrn">
         <h2>Coding Quiz Challenge!</h2>
+        <p>Answer the following code related questions within the time limit. Keep in mind incorrect answers will penalize your score/time by 10 seconds!</p>
         <button>Start Quiz</button>
     </div>
-    <div id ="end-screen" class="hide-me">
+    <div id ="end-screen" class="hide-me question-ctnr">
         <h2>All Done!</h2>
         <p>Final score displyed here</p>
         <input type="text" placeholder="Enter your initials here!" />
