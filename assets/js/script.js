@@ -104,6 +104,7 @@ function showQuestion(question) {
             button.dataset.correct = answer.correct
         }
         button.addEventListener('click', selectAnswer)
+        button.addEventListener('')
         answerBtns.appendChild(button)
     })
 }
