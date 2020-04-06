@@ -86,16 +86,20 @@ function countdown () {
 
 function setNextQuestion () {
     clearAnswers();
+    if (shuffledQuestions.length < currentQuestion + 1) {
+        endQuiz();
+    }
     showQuestion(shuffledQuestions[currentQuestion]);
     
 }
 
 function showQuestion(question) {
-    questionEl.innerText = question['question'];
+    questionEl.innerText = question.question;
     question.answers.forEach(answer => {
         const button = document.createElement('button')
         button.innerText = answer.text
         button.classList.add('btn')
+        button.setAttribute('id', "btn");
         if (answer.correct) {
             button.dataset.correct = answer.correct
         }
@@ -112,37 +116,30 @@ function clearAnswers() {
 
 
 function selectAnswer(event) {
-    const selectedButton = event.target
-    const correct = selectedButton.dataset.correct
+    var selectedButton = event.target
+    var correct = selectedButton.dataset.correct
     setQuestionResponse(responseDisplayEl, correct)
-    Array.from(answerBtns.children).forEach(button => {
-        setQuestionResponse(button, button.dataset.correct)
-    })
-    if (shuffledQuestions.length < currentQuestion + 1) {
-        alert("poop");
-    }
 }
 
-function setQuestionResponse(element, correct) {
-    resetResponse(element)
+function setQuestionResponse(responseDisplayEl, correct) {
+    resetResponse(responseDisplayEl)
     if (correct) {
         responseDisplayEl.classList.remove('hide-me');
         responseDisplayEl.innerText = "Correct!";
-    } else {
-        responseDisplayEl.classList.remove('hide-me');
-        responseDisplayEl.innterText = "Wrong!";
     }
+    responseDisplayEl.classList.remove('hide-me');
     currentQuestion++
     setNextQuestion();
 }
 
-function resetResponse(element) {
+function resetResponse(responseDisplayEl) {
     responseDisplayEl.classList.add('hide-me')
+    responseDisplayEl.innerText = "Wrong!"
 }
 
 //when all questions are answered or the timer reaches 0 then the game is over
 function endQuiz (){
-
+    
 }
 
 //when the game is over then I can save my initials and score
