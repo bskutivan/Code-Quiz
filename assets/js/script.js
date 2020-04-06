@@ -6,10 +6,18 @@ let score
 
 const startButton = document.getElementById('start-btn');
 const startScreenEl = document.getElementById('start-screen');
+const endtScreenEl = document.getElementById('end-screen');
+const finalScoreDisplayEl = document.getElementById('final-score-display');
 const questionContainerEl = document.getElementById('question-container');
 const questionEl = document.getElementById('question');
 const answerBtns = document.getElementById('answer-buttons');
 const responseDisplayEl = document.getElementById('question-response');
+const submitBtnEl = document.getElementById('submit-btn');
+const restartBtnEl = document.getElementById('restart');
+
+
+const highScores = [];
+
 
 const questions = [
     {
@@ -144,29 +152,49 @@ function resetResponse(responseDisplayEl) {
 }
 
 //when all questions are answered or the timer reaches 0 then the game is over
-function endQuiz (){
-    saveScore();
+function endQuiz () {
+    myScore = timer.innerHTML
     questionContainerEl.classList.add('hide-me'); 
-      
+    endtScreenEl.classList.remove('hide-me');
+    finalScoreDisplayEl.innerText = 'Your final score is ' + myScore + "!";
+    submitBtnEl.addEventListener('submit', saveScore)
 }
 
-//when the game is over then I can save my initials and score
-// when user submits initials call function that collects this information and stores it and takes us to the highscore page.
 
 
 function saveScore () {
-    var myScore = timer.innerHTML
-    console.log(myScore);
+   userInitials = document.getElementById('initial').value;
+
+   console.log(userInitials);
+
+//    scoreObj = {
+//        name: userInitials,
+//        score: myScore,
+//    }
+
+//    highScores.push(scoreObj);
+//    localStorage.setItem("score", JSON.stringify(highScores));
+
 }
 
 // call function that gets this data from local storage and displays it on the final page.
 
 function getScore () {
+    var savedScores = localStorage.getItem("score", highscores);
 
+    if (!highscores) {
+        return false;
+    };
+
+    savedScores = JSON.parse(savedScores)
+    displayScores();
 }
 
 function displayScores () {
-
+    var scoreEl = document.createElement("li");
+    scoreEl.className = "previous-score"
+    scoreEl.innerText = initials + "-" + myScore;
 }
 
 startButton.addEventListener('click', startQuiz)
+

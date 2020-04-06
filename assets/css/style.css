@@ -66,6 +66,29 @@ body header a {
     max-width: 80%;
 }
 
+.highscore-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.highscore-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 400px;
+    width: 400px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-container .btn {
+
+}
+
 .start-scrn h2 {
     margin-bottom: 0;
     font-weight: bolder;

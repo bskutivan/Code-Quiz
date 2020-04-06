@@ -7,15 +7,16 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Highscores</title>
 </head>
-<body>
-    <div id="highscore-container">
+<body class="highscore-page">
+    <div class="highscore-container">
         <h2 id="highscore-text">Highscores</h2>
         <ul id="highscore-list">
-
+            
         </ul>
-        <button class="btn" id="restart">Go Back</button>
-        <button class="btn" id="clear-highscores">Clear Highscores</button>
-
+        <div class="btn-container">
+            <button onclick="location.href='index.html'" class="btn" id="restart">Try Again</button>
+            <button class="btn" id="clear-highscores">Clear Highscores</button>
+        </div>
     </div>
     
 </body>
