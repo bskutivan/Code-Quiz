@@ -82,6 +82,9 @@ function startQuiz() {
 function countdown () {
     timer.innerHTML = counter
     counter--;
+    if (counter <= 0) {
+        endQuiz();
+    }
 }
 
 function setNextQuestion () {
@@ -104,7 +107,6 @@ function showQuestion(question) {
             button.dataset.correct = answer.correct
         }
         button.addEventListener('click', selectAnswer)
-        button.addEventListener('')
         answerBtns.appendChild(button)
     })
 }
@@ -128,9 +130,12 @@ function setQuestionResponse(responseDisplayEl, correct) {
         responseDisplayEl.classList.remove('hide-me');
         responseDisplayEl.innerText = "Correct!";
     }
-    responseDisplayEl.classList.remove('hide-me');
-    currentQuestion++
-    setNextQuestion();
+    else {
+        responseDisplayEl.classList.remove('hide-me');
+        counter = counter - 10;
+        currentQuestion++
+        setNextQuestion();
+    }
 }
 
 function resetResponse(responseDisplayEl) {
