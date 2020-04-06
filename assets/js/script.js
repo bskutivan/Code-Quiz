@@ -7,7 +7,8 @@ const startButton = document.getElementById('start-btn');
 const startScreenEl = document.getElementById('start-screen');
 const questionContainerEl = document.getElementById('question-container');
 const questionEl = document.getElementById('question');
-const answerBtns = document.getElementById('answer-buttons')
+const answerBtns = document.getElementById('answer-buttons');
+const responseDisplayEl = document.getElementById('question-response');
 
 const questions = [
     {
@@ -116,8 +117,28 @@ function clearAnswers() {
 
 // when I answer a question incorrectly then time is subtracted from the clock
 
-function selectAnswer() {
+function selectAnswer(event) {
+    const selectedButton = event.target
+    const correct = selectedButton.dataset.correct
+    setQuestionResponse(responseDisplayEl, correct)
+    Array.from(answerBtns.children).forEach(button => {
+        setQuestionResponse(button, button.dataset.correct)
+    })
+}
 
+function setQuestionResponse(element, correct) {
+    resetResponse(element)
+    if (correct) {
+        responseDisplayEl.classList.remove('hide-me')
+        responseDisplayEl.innerText = "Correct!"
+    } else {
+        responseDisplayEl.classList.remove('hide-me')
+        responseDisplayEl.innterText = "Wrong!"
+    }
+}
+
+function resetResponse(element) {
+    responseDisplayEl.classList.add('hide-me')
 }
 // call a function that checks answer for correct or incorrect
 
