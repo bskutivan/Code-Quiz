@@ -85,9 +85,7 @@ body header a {
     justify-content: space-around;
 }
 
-.btn-container .btn {
 
-}
 
 .start-scrn h2 {
     margin-bottom: 0;
@@ -95,7 +93,7 @@ body header a {
 }
 
 .start-scrn p {
-    width: 50%;
+    width: 100%;
     font-weight: bold;
 }
 

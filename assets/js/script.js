@@ -14,9 +14,10 @@ const answerBtns = document.getElementById('answer-buttons');
 const responseDisplayEl = document.getElementById('question-response');
 const submitBtnEl = document.getElementById('submit-btn');
 const restartBtnEl = document.getElementById('restart');
+const highScoreListEl = document.getElementById('highscore-list')
 
 
-const highScores = [];
+var highScores = [];
 
 
 const questions = [
@@ -157,44 +158,48 @@ function endQuiz () {
     questionContainerEl.classList.add('hide-me'); 
     endtScreenEl.classList.remove('hide-me');
     finalScoreDisplayEl.innerText = 'Your final score is ' + myScore + "!";
-    submitBtnEl.addEventListener('submit', saveScore)
 }
 
 
 
 function saveScore () {
-   userInitials = document.getElementById('initial').value;
+    var userInitials = document.getElementById('initials').value;
+    // var myScore = myScore
 
-   console.log(userInitials);
+    scoreObj = {
+       name: userInitials,
+       score: myScore,
+    }
 
-//    scoreObj = {
-//        name: userInitials,
-//        score: myScore,
-//    }
-
-//    highScores.push(scoreObj);
-//    localStorage.setItem("score", JSON.stringify(highScores));
+    highScores.push(scoreObj);
+    localStorage.setItem("score", JSON.stringify(highScores));
+    location.href="highscores.html";
+    getScore();
 
 }
 
 // call function that gets this data from local storage and displays it on the final page.
 
 function getScore () {
-    var savedScores = localStorage.getItem("score", highscores);
+    var savedScores = localStorage.getItem("score", highScores);
+ 
+//     if (!highScores) {
+//         return false;
+//     };
 
-    if (!highscores) {
-        return false;
-    };
-
-    savedScores = JSON.parse(savedScores)
-    displayScores();
+//     savedScores = JSON.parse(savedScores)
+//     displayScores();
 }
 
 function displayScores () {
     var scoreEl = document.createElement("li");
     scoreEl.className = "previous-score"
-    scoreEl.innerText = initials + "-" + myScore;
+    scoreEl.innerText = savedScores
+    highScoreListEl.appendChild(highScores)
+
 }
+
+submitBtnEl.addEventListener('click', saveScore)
 
 startButton.addEventListener('click', startQuiz)
 
