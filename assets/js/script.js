@@ -64,14 +64,11 @@ const questions = [
             {text: "<p>", correct: false},
             {text: "<HTML>", correct: false}
         ]
-    },
+    }
 ]
 
 let shuffledQuestions, currentQuestion
 
-// function addHide () {
-
-// }
 
 function startQuiz() {
     setInterval(countdown, 1000);
@@ -84,24 +81,22 @@ function startQuiz() {
 
 function countdown () {
     timer.innerHTML = counter
-    counter--;;
+    counter--;
 }
 
 function setNextQuestion () {
-    clearAnswers()
+    clearAnswers();
     showQuestion(shuffledQuestions[currentQuestion]);
     
 }
 
 function showQuestion(question) {
-    questionEl.innerText = question.question
+    questionEl.innerText = question['question'];
     question.answers.forEach(answer => {
         const button = document.createElement('button')
         button.innerText = answer.text
         button.classList.add('btn')
         if (answer.correct) {
-            console.log("yay");
-            // dataset used to check answers
             button.dataset.correct = answer.correct
         }
         button.addEventListener('click', selectAnswer)
@@ -115,7 +110,6 @@ function clearAnswers() {
     }
 }
 
-// when I answer a question incorrectly then time is subtracted from the clock
 
 function selectAnswer(event) {
     const selectedButton = event.target
@@ -124,30 +118,30 @@ function selectAnswer(event) {
     Array.from(answerBtns.children).forEach(button => {
         setQuestionResponse(button, button.dataset.correct)
     })
+    if (shuffledQuestions.length < currentQuestion + 1) {
+        alert("poop");
+    }
 }
 
 function setQuestionResponse(element, correct) {
     resetResponse(element)
     if (correct) {
-        responseDisplayEl.classList.remove('hide-me')
-        responseDisplayEl.innerText = "Correct!"
+        responseDisplayEl.classList.remove('hide-me');
+        responseDisplayEl.innerText = "Correct!";
     } else {
-        responseDisplayEl.classList.remove('hide-me')
-        responseDisplayEl.innterText = "Wrong!"
+        responseDisplayEl.classList.remove('hide-me');
+        responseDisplayEl.innterText = "Wrong!";
     }
+    currentQuestion++
+    setNextQuestion();
 }
 
 function resetResponse(element) {
     responseDisplayEl.classList.add('hide-me')
 }
-// call a function that checks answer for correct or incorrect
 
 //when all questions are answered or the timer reaches 0 then the game is over
 function endQuiz (){
-
-}
-// call a function that removes hide-me class for end screen
-function removeHide (){
 
 }
 
