@@ -2,6 +2,7 @@
 const timer = document.getElementById('timer');
 timer.innerHTML = 0;
 let counter = 75;
+let score
 
 const startButton = document.getElementById('start-btn');
 const startScreenEl = document.getElementById('start-screen');
@@ -71,7 +72,7 @@ let shuffledQuestions, currentQuestion
 
 
 function startQuiz() {
-    setInterval(countdown, 1000);
+    score = setInterval(countdown, 1000);
     startScreenEl.classList.add('hide-me')
     shuffledQuestions = questions.sort(() => Math.random() -.5)
     currentQuestion = 0
@@ -82,18 +83,16 @@ function startQuiz() {
 function countdown () {
     timer.innerHTML = counter
     counter--;
-    if (counter <= 0) {
-        endQuiz();
-    }
 }
 
 function setNextQuestion () {
     clearAnswers();
     if (shuffledQuestions.length < currentQuestion + 1) {
+        clearInterval(score);
         endQuiz();
-    }
-    showQuestion(shuffledQuestions[currentQuestion]);
-    
+    } else {
+        showQuestion(shuffledQuestions[currentQuestion]);
+    }   
 }
 
 function showQuestion(question) {
@@ -133,9 +132,10 @@ function setQuestionResponse(responseDisplayEl, correct) {
     else {
         responseDisplayEl.classList.remove('hide-me');
         counter = counter - 10;
-        currentQuestion++
-        setNextQuestion();
     }
+    currentQuestion++
+    setNextQuestion();
+    
 }
 
 function resetResponse(responseDisplayEl) {
@@ -145,7 +145,9 @@ function resetResponse(responseDisplayEl) {
 
 //when all questions are answered or the timer reaches 0 then the game is over
 function endQuiz (){
-    
+    saveScore();
+    questionContainerEl.classList.add('hide-me'); 
+      
 }
 
 //when the game is over then I can save my initials and score
@@ -153,7 +155,8 @@ function endQuiz (){
 
 
 function saveScore () {
-
+    var myScore = timer.innerHTML
+    console.log(myScore);
 }
 
 // call function that gets this data from local storage and displays it on the final page.
